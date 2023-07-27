@@ -1,20 +1,8 @@
 import { useRef, Dispatch, SetStateAction, FormEvent } from 'react';
+import { CountryData } from '../../types/CountryData';
+import { getCountryData } from '../../utils/api';
 import { Form, TextField } from '@react-md/form';
 import { Button } from '@react-md/button';
-import { getCountryData } from '../../utils/api';
-
-interface CountryData {
-  commonName: string;
-  officialName: string;
-  currency: string;
-  currencySymbol: string;
-  language: string;
-  capital: string;
-  population: number;
-  flagUrl: string;
-  flagAlt: string;
-  coatOfArmsUrl: string;
-}
 
 const Search = ({searchTerm, setSearchTerm, setCountryData} : {searchTerm: string, setSearchTerm: Dispatch<SetStateAction<string>>, setCountryData: Dispatch<SetStateAction<CountryData | null>>}) => { 
 

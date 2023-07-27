@@ -1,21 +1,9 @@
 import { useEffect, useState } from 'react';
 import Search from './components/Search/Search';
 import Results from './components/Results/Results';
+import { CountryData } from './types/CountryData';
 import { AppBar, AppBarTitle } from '@react-md/app-bar';
 import './App.css'
-
-interface CountryData {
-  commonName: string;
-  officialName: string;
-  currency: string;
-  currencySymbol: string;
-  language: string;
-  capital: string;
-  population: number;
-  flagUrl: string;
-  flagAlt: string;
-  coatOfArmsUrl: string;
-}
 
 const App = () => {
 

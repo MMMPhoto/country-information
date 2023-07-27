@@ -1,16 +1,4 @@
-
-interface CountryData {
-  commonName: string;
-  officialName: string;
-  currency: string;
-  currencySymbol: string;
-  language: string;
-  capital: string;
-  population: number;
-  flagUrl: string;
-  flagAlt: string;
-  coatOfArmsUrl: string;
-}
+import { CountryData } from '../../types/CountryData';
 
 const Results = ({countryData} : {countryData: CountryData | null}) => { 
 
