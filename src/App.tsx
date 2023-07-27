@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <>
-      <AppBar title="Country Information Project">
+      <AppBar>
         <AppBarTitle>Country Information Project</AppBarTitle>
       </AppBar>
       <Search

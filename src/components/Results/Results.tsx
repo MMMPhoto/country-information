@@ -1,12 +1,13 @@
 import { CountryData } from '../../types/CountryData';
+import { Container, InfoContainer, ImageContainer, Flag, CoatOfArms } from './styles';
 
 const Results = ({countryData} : {countryData: CountryData | null}) => { 
 
   return (
-    <main>
+    <Container>
       {countryData 
         ?
-          <div>
+          <InfoContainer>
             <p>Common Name: {countryData.commonName}</p>
             <p>Official Name: {countryData.officialName}</p>
             <p>Currency: {countryData.currency}</p>
@@ -14,13 +15,21 @@ const Results = ({countryData} : {countryData: CountryData | null}) => {
             <p>Language: {countryData.language}</p>
             <p>Capital: {countryData.capital}</p>
             <p>Population: {countryData.population}</p>
-            <img src={countryData.flagUrl} alt={countryData.flagAlt} />
-            <img src={countryData.coatOfArmsUrl} alt={countryData.officialName} />
-          </div>
+          </InfoContainer>
         :  
-          <p>No country data found</p>
+          <InfoContainer>No country data found</InfoContainer>
       }
-    </main>
+
+      {countryData
+        ?
+          <ImageContainer>
+            <Flag src={countryData.flagUrl} alt={countryData.flagAlt} />
+            <CoatOfArms src={countryData.coatOfArmsUrl} alt={countryData.officialName} />
+          </ImageContainer>
+        :
+          <ImageContainer></ImageContainer>
+      }
+    </Container>
 
   )
 }
