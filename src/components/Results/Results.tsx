@@ -1,7 +1,7 @@
 import { CountryData } from '../../types/CountryData';
 import { Container, InfoContainer, ImageContainer, Flag, CoatOfArms } from './styles';
 
-const Results = ({countryData} : {countryData: CountryData | null}) => { 
+const Results = ({countryData, responseObject} : {countryData: CountryData | null, responseObject: Response | null}) => { 
 
   return (
     <Container>
@@ -17,7 +17,17 @@ const Results = ({countryData} : {countryData: CountryData | null}) => {
             <p>Population: {countryData.population}</p>
           </InfoContainer>
         :  
-          <InfoContainer>No country data found</InfoContainer>
+          <InfoContainer>
+            {responseObject && !responseObject?.ok 
+              ?
+                <div>
+                  <h2>Something went wrong!</h2>
+                  <p>Status: {responseObject.status} {responseObject.statusText}</p>
+                </div>
+              :
+                <></>
+            } 
+          </InfoContainer>
       }
 
       {countryData

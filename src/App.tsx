@@ -7,12 +7,17 @@ import './App.css'
 
 const App = () => {
 
+  const [responseObject, setResponseObject] = useState<Response | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [countryData, setCountryData] = useState<CountryData | null>(null);
 
   useEffect(() => {
     console.log(countryData);
   }, [countryData]);
+
+  useEffect(() => {
+    console.log(responseObject);
+  }, [responseObject]);
 
   return (
     <>
@@ -22,9 +27,11 @@ const App = () => {
       <Search
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
+        setResponseObject={setResponseObject}
         setCountryData={setCountryData}
       />
       <Results
+        responseObject={responseObject}
         countryData={countryData}
       />
     </>
