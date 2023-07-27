@@ -16,7 +16,7 @@ interface CountryData {
   coatOfArmsUrl: string;
 }
 
-const Search = ({searchTerm, setSearchTerm, countryData, setCountryData} : {searchTerm: string, setSearchTerm: Dispatch<SetStateAction<string>>, countryData: CountryData | null, setCountryData: Dispatch<SetStateAction<CountryData | null>>}) => { 
+const Search = ({searchTerm, setSearchTerm, setCountryData} : {searchTerm: string, setSearchTerm: Dispatch<SetStateAction<string>>, setCountryData: Dispatch<SetStateAction<CountryData | null>>}) => { 
 
   const searchRef = useRef(null);
 
@@ -89,24 +89,22 @@ const Search = ({searchTerm, setSearchTerm, countryData, setCountryData} : {sear
   };
 
   return (
-    <>
-      <Form ref={searchRef}>
-        <TextField
-          id='text-search'
-          type='text'
-          label='Search for a country'
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.currentTarget.value)}
-        />
-        <Button 
-          id='submit' 
-          type='submit'
-          onClick={handleFormSubmit}
-        >
-          Search
-        </Button>
-      </Form>
-    </>
+    <Form ref={searchRef}>
+      <TextField
+        id='text-search'
+        type='text'
+        label='Search for a country'
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.currentTarget.value)}
+      />
+      <Button 
+        id='submit' 
+        type='submit'
+        onClick={handleFormSubmit}
+      >
+        Search
+      </Button>
+    </Form>
   )
 }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Search from './components/Search/Search';
+import Results from './components/Results/Results';
 import { AppBar, AppBarTitle } from '@react-md/app-bar';
 import './App.css'
 
@@ -33,25 +34,11 @@ const App = () => {
       <Search
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
-        countryData={countryData}
         setCountryData={setCountryData}
       />
-      {countryData 
-        ?
-          <main>
-            <p>Common Name: {countryData.commonName}</p>
-            <p>Official Name: {countryData.officialName}</p>
-            <p>Currency: {countryData.currency}</p>
-            <p>Currency Symbol: {countryData.currencySymbol}</p>
-            <p>Language: {countryData.language}</p>
-            <p>Capital: {countryData.capital}</p>
-            <p>Population: {countryData.population}</p>
-            <img src={countryData.flagUrl} alt={countryData.flagAlt} />
-            <img src={countryData.coatOfArmsUrl} alt={countryData.officialName} />
-          </main>
-        :  
-          <p>No country data found</p>
-      }
+      <Results
+        countryData={countryData}
+      />
     </>
   )
 }
