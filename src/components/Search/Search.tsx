@@ -77,6 +77,7 @@ const Search = ({searchTerm, setSearchTerm, setResponseObject, areMultipleResult
       console.log(results[chosenCountryIndex]);
       buildCountryDataObject(results[chosenCountryIndex]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chosenCountryIndex]);
 
   const handleFormSubmit = async (e: FormEvent<HTMLButtonElement>) => {
