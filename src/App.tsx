@@ -36,11 +36,15 @@ const App = () => {
         setAreMultipleResults={setAreMultipleResults}
         setCountryData={setCountryData}
       />
-      <Results
-        responseObject={responseObject}
-        areMultipleResults={areMultipleResults}
-        countryData={countryData}
-      />
+      {!areMultipleResults 
+        ?
+          <Results
+            responseObject={responseObject}
+            countryData={countryData}
+          />
+        :
+          <></>
+      } 
     </>
   )
 }
