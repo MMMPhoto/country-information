@@ -1,11 +1,14 @@
 {
   "name": "country-information",
+  "homepage": "https://mmmphoto.github.io/country-information/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -14,6 +17,7 @@
     "@react-md/button": "^5.1.3",
     "@react-md/card": "^5.1.3",
     "@react-md/form": "^5.1.4",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-md": "^5.1.5",
