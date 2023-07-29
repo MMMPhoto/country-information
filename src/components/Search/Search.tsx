@@ -87,7 +87,7 @@ const Search = ({searchTerm, setSearchTerm, setResponseObject, setCountryData} :
   };
 
   return (
-    <Form ref={searchRef}>
+    <Form style={{margin: '20px'}} ref={searchRef}>
       <TextField
         id='text-search'
         type='text'
@@ -95,7 +95,8 @@ const Search = ({searchTerm, setSearchTerm, setResponseObject, setCountryData} :
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.currentTarget.value)}
       />
-      <Button 
+      <Button
+        style={{marginTop: '10px', backgroundColor: '#ddd'}}
         id='submit' 
         type='submit'
         onClick={handleFormSubmit}

@@ -1,5 +1,5 @@
 import { CountryData } from '../../types/CountryData';
-import { Container, InfoContainer, ImageContainer, Flag, CoatOfArms } from './styles';
+import { Container, InfoContainer, Heading, ImageContainer, Flag, CoatOfArms } from './Results.styles';
 
 const Results = ({countryData, responseObject} : {countryData: CountryData | null, responseObject: Response | null}) => { 
 
@@ -8,20 +8,27 @@ const Results = ({countryData, responseObject} : {countryData: CountryData | nul
       {countryData 
         ?
           <InfoContainer>
-            <p>Common Name: {countryData.commonName}</p>
-            <p>Official Name: {countryData.officialName}</p>
-            <p>Currency: {countryData.currency}</p>
-            <p>Currency Symbol: {countryData.currencySymbol}</p>
-            <p>Language: {countryData.language}</p>
-            <p>Capital: {countryData.capital}</p>
-            <p>Population: {countryData.population}</p>
+            <Heading>Common Name:</Heading>
+            <p>{countryData.commonName}</p>
+            <Heading>Official Name:</Heading>
+            <p>{countryData.officialName}</p>
+            <Heading>Currency:</Heading>
+            <p>{countryData.currency}</p>
+            <Heading>Currency Symbol:</Heading>
+            <p>{countryData.currencySymbol}</p>
+            <Heading>Language:</Heading>
+            <p>{countryData.language}</p>
+            <Heading>Capital:</Heading>
+            <p>{countryData.capital}</p>
+            <Heading>Population:</Heading>
+            <p>{countryData.population}</p>
           </InfoContainer>
         :  
           <InfoContainer>
             {responseObject && !responseObject?.ok 
               ?
                 <div>
-                  <h2>Something went wrong!</h2>
+                  <Heading>Something went wrong!</Heading>
                   <p>Status: {responseObject.status} {responseObject.statusText}</p>
                 </div>
               :
@@ -34,7 +41,7 @@ const Results = ({countryData, responseObject} : {countryData: CountryData | nul
         ?
           <ImageContainer>
             <Flag src={countryData.flagUrl} alt={countryData.flagAlt} />
-            <CoatOfArms src={countryData.coatOfArmsUrl} alt={countryData.officialName} />
+            <CoatOfArms src={countryData.coatOfArmsUrl} alt={`Coat of Arms of ${countryData.officialName}`} />
           </ImageContainer>
         :
           <ImageContainer></ImageContainer>

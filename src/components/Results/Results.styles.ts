@@ -10,7 +10,14 @@ export const Container = styled.main`
 export const InfoContainer = styled(Card)`
   display: flex;
   flex-direction: column;
+  margin: 0 20px 20px 20px;
+  padding: 20px;
   width: 50vw;
+`;
+
+export const Heading = styled.h2`
+  font-size: 20px;
+  margin: 0;
 `;
 
 export const ImageContainer = styled(Card)`
@@ -18,6 +25,8 @@ export const ImageContainer = styled(Card)`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  margin: 0 20px 20px 20px;
+  padding: 20px;
   width: 50vw;
 `;
 

@@ -21,8 +21,8 @@ const App = () => {
 
   return (
     <>
-      <AppBar>
-        <AppBarTitle>Country Information Project</AppBarTitle>
+      <AppBar style={{backgroundColor: '#9ffafa'}}>
+        <AppBarTitle style={{color: '#000'}}>Country Information Project</AppBarTitle>
       </AppBar>
       <Search
         searchTerm={searchTerm}
