@@ -50,12 +50,6 @@ const Search = ({searchTerm, setSearchTerm, setResponseObject, setCountryData} :
             return {name, symbol};
           });
           console.log(currencyData);
-          // const {
-          //   value: {name},
-          //   value: {symbol}
-          // } = arrayOfCurrencies[0];
-          // const currency = name;
-          // const currencySymbol = symbol;
 
           // Get languages
           const languageObject = result[0].languages;
@@ -64,7 +58,8 @@ const Search = ({searchTerm, setSearchTerm, setResponseObject, setCountryData} :
           const languages = languageData.map(language => language.value);
 
           // Get capital
-          const capital = result[0].capital[0];
+          console.log(result[0].capital);
+          const capital = result[0].capital === undefined ? "No capital given.": result[0].capital[0];
 
           // Get coat of arms
           const coatOfArms = result[0].coatOfArms.png;
