@@ -3,8 +3,11 @@ import { Card } from '@react-md/card';
 
 export const Container = styled.main`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100vw;
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
 `;
 
 export const InfoContainer = styled(Card)`
@@ -12,7 +15,10 @@ export const InfoContainer = styled(Card)`
   flex-direction: column;
   margin: 0 20px 20px 20px;
   padding: 20px;
-  width: 50vw;
+  width: 100vw;
+  @media (min-width: 600px) {
+    width: 50vw;
+  }
 `;
 
 export const Heading = styled.h2`
@@ -31,7 +37,10 @@ export const ImageContainer = styled(Card)`
   align-items: center;
   margin: 0 20px 20px 20px;
   padding: 20px;
-  width: 50vw;
+  width: 100vw;
+  @media (min-width: 600px) {
+    width: 50vw;
+  }
 `;
 
 export const Flag = styled.img`
