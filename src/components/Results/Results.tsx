@@ -12,12 +12,14 @@ const Results = ({countryData, responseObject} : {countryData: CountryData | nul
             <p>{countryData.commonName}</p>
             <Heading>Official Name:</Heading>
             <p>{countryData.officialName}</p>
-            <Heading>Currency:</Heading>
-            <p>{countryData.currency}</p>
-            <Heading>Currency Symbol:</Heading>
-            <p>{countryData.currencySymbol}</p>
-            <Heading>Language:</Heading>
-            <p>{countryData.language}</p>
+            <Heading>{countryData.currencyData.length > 1 ? 'Currencies:' : 'Currency:'}</Heading>
+            <ul style={{listStyle: 'none'}}>
+              {countryData.currencyData.map(currency => <li key={currency.name}>{currency.name} ({currency.symbol})</li>)}
+            </ul>
+            <Heading>{countryData.languages.length > 1 ? 'Languages:' : 'Language:'}</Heading>
+            <ul style={{listStyle: 'none'}}>
+              {countryData.languages.map(language => <li key={language}>{language}</li>)}
+            </ul>
             <Heading>Capital:</Heading>
             <p>{countryData.capital}</p>
             <Heading>Population:</Heading>

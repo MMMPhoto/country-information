@@ -42,21 +42,26 @@ const Search = ({searchTerm, setSearchTerm, setResponseObject, setCountryData} :
           const currencyObject = result[0].currencies;
           const currencyNames = Object.keys(currencyObject);
           const arrayOfCurrencies = currencyNames.map(currency => ({key: currency, value: currencyObject[currency]}));
-          const {
-            value: {name},
-            value: {symbol}
-          } = arrayOfCurrencies[0];
-          const currency = name;
-          const currencySymbol = symbol;
+          const currencyData = arrayOfCurrencies.map(currency => {
+            const {
+              value: {name},
+              value: {symbol},
+            } = currency;
+            return {name, symbol};
+          });
+          console.log(currencyData);
+          // const {
+          //   value: {name},
+          //   value: {symbol}
+          // } = arrayOfCurrencies[0];
+          // const currency = name;
+          // const currencySymbol = symbol;
 
-          // Get language
+          // Get languages
           const languageObject = result[0].languages;
           const languageNames = Object.keys(languageObject);
-          const arrayOfLanguages = languageNames.map(language => ({key: language, value: languageObject[language]}));
-          const {
-            value
-          } = arrayOfLanguages[0];
-          const language = value;
+          const languageData = languageNames.map(language => ({key: language, value: languageObject[language]}));
+          const languages = languageData.map(language => language.value);
 
           // Get capital
           const capital = result[0].capital[0];
@@ -68,9 +73,8 @@ const Search = ({searchTerm, setSearchTerm, setResponseObject, setCountryData} :
           setCountryData({
             commonName: commonName,
             officialName: officialName,
-            currency: currency,
-            currencySymbol: currencySymbol,
-            language: language,
+            currencyData: currencyData,
+            languages: languages,
             capital: capital,
             population: population,
             flagUrl: flagUrl,

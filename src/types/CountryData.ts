@@ -1,9 +1,10 @@
+import { CurrencyData } from "./CurrencyData";
+
 export type CountryData = {
   commonName: string;
   officialName: string;
-  currency: string;
-  currencySymbol: string;
-  language: string;
+  currencyData: CurrencyData[];
+  languages: string[];
   capital: string;
   population: number;
   flagUrl: string;
