@@ -40,8 +40,8 @@ const Results = ({countryData, responseObject} : {countryData: CountryData | nul
       {countryData
         ?
           <ImageContainer>
-            <Flag src={countryData.flagUrl} alt={countryData.flagAlt} />
-            <CoatOfArms src={countryData.coatOfArmsUrl} alt={`Coat of Arms of ${countryData.officialName}`} />
+            {countryData.flagUrl && <Flag src={countryData.flagUrl!} alt={countryData.flagAlt!} />}
+            {countryData.coatOfArmsUrl && <CoatOfArms src={countryData.coatOfArmsUrl!} alt={`Coat of Arms of ${countryData.officialName}`} />}
           </ImageContainer>
         :
           <></>

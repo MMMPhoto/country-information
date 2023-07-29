@@ -51,6 +51,7 @@ const Search = ({searchTerm, setSearchTerm, setResponseObject, setCountryData} :
           });
           console.log(currencyData);
 
+
           // Get languages
           const languageObject = result[0].languages;
           const languageNames = Object.keys(languageObject);

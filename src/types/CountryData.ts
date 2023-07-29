@@ -7,7 +7,7 @@ export type CountryData = {
   languages: string[];
   capital: string;
   population: number;
-  flagUrl: string;
-  flagAlt: string;
-  coatOfArmsUrl: string;
+  flagUrl: string | null;
+  flagAlt: string | null;
+  coatOfArmsUrl: string | null;
 };
