@@ -34,23 +34,34 @@ const Search = ({searchTerm, setSearchTerm, setResponseObject, areMultipleResult
     const flagAlt = alt;
 
     // Get currency name and symbol
-    const currencyObject = chosenCountry.currencies;
-    const currencyNames = Object.keys(currencyObject);
-    const arrayOfCurrencies = currencyNames.map(currency => ({key: currency, value: currencyObject[currency]}));
-    const currencyData = arrayOfCurrencies.map(currency => {
-      const {
-        value: {name},
-        value: {symbol},
-      } = currency;
-      return {name, symbol};
-    });
+    let currencyData: any;
+    if (chosenCountry.currencies) {
+      const currencyObject = chosenCountry.currencies;
+      console.log(currencyObject);
+      const currencyNames = Object.keys(currencyObject);
+      const arrayOfCurrencies = currencyNames.map(currency => ({key: currency, value: currencyObject[currency]}));
+      currencyData = arrayOfCurrencies.map(currency => {
+        const {
+          value: {name},
+          value: {symbol},
+        } = currency;
+        return {name, symbol};
+      });
+    } else {
+      currencyData = [];
+    }
 
     // Get languages
-    const languageObject = chosenCountry.languages;
-    const languageNames = Object.keys(languageObject);
-    const languageData = languageNames.map(language => ({key: language, value: languageObject[language]}));
-    const languages = languageData.map(language => language.value);
-
+    let languages: any;
+    if (chosenCountry.languages) {
+      const languageObject = chosenCountry.languages;
+      const languageNames = Object.keys(languageObject);
+      const languageData = languageNames.map(language => ({key: language, value: languageObject[language]}));
+      languages = languageData.map(language => language.value);
+    } else {
+      languages = [];
+    }
+    
     // Get capital
     const capital = chosenCountry.capital === undefined ? "No capital given.": chosenCountry.capital[0];
 

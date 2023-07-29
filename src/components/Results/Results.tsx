@@ -1,5 +1,5 @@
 import { CountryData } from '../../types/CountryData';
-import { Container, InfoContainer, Heading, ImageContainer, Flag, CoatOfArms } from './Results.styles';
+import { Container, InfoContainer, Heading, Info, ImageContainer, Flag, CoatOfArms } from './Results.styles';
 
 const Results = ({countryData, responseObject} : {countryData: CountryData | null, responseObject: Response | null}) => { 
 
@@ -9,21 +9,31 @@ const Results = ({countryData, responseObject} : {countryData: CountryData | nul
         ?
           <InfoContainer>
             <Heading>Common Name:</Heading>
-            <p>{countryData.commonName}</p>
+            <Info>{countryData.commonName}</Info>
             <Heading>Official Name:</Heading>
-            <p>{countryData.officialName}</p>
+            <Info>{countryData.officialName}</Info>
             <Heading>{countryData.currencyData.length > 1 ? 'Currencies:' : 'Currency:'}</Heading>
-            <ul style={{listStyle: 'none'}}>
-              {countryData.currencyData.map(currency => <li key={currency.name}>{currency.name} ({currency.symbol})</li>)}
-            </ul>
+            {countryData.currencyData.length > 0
+              ?
+                <ul style={{listStyle: 'none'}}>
+                  {countryData.currencyData.map(currency => <li key={currency.name}>{currency.name} ({currency.symbol})</li>)}
+                </ul>
+              :
+                <Info>No currency given.</Info>
+            }
             <Heading>{countryData.languages.length > 1 ? 'Languages:' : 'Language:'}</Heading>
-            <ul style={{listStyle: 'none'}}>
-              {countryData.languages.map(language => <li key={language}>{language}</li>)}
-            </ul>
+            {countryData.languages.length > 0
+              ?
+                <ul style={{listStyle: 'none'}}>
+                  {countryData.languages.map(language => <li key={language}>{language}</li>)}
+                </ul>
+              :
+                <Info>No language given.</Info> 
+            }   
             <Heading>Capital:</Heading>
-            <p>{countryData.capital}</p>
+            <Info>{countryData.capital}</Info>
             <Heading>Population:</Heading>
-            <p>{countryData.population}</p>
+            <Info>{countryData.population}</Info>
           </InfoContainer>
         :
           <></>

@@ -20,6 +20,10 @@ export const Heading = styled.h2`
   margin: 0;
 `;
 
+export const Info = styled.p`
+  padding-left: 40px;
+`;
+
 export const ImageContainer = styled(Card)`
   display: flex;
   flex-direction: column;
