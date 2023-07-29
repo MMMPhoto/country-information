@@ -12,6 +12,7 @@ const App = () => {
 
   const [responseObject, setResponseObject] = useState<Response | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [areMultipleResults, setAreMultipleResults] = useState<boolean>(false);
   const [countryData, setCountryData] = useState<CountryData | null>(null);
 
   // useEffect(() => {
@@ -31,10 +32,13 @@ const App = () => {
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         setResponseObject={setResponseObject}
+        areMultipleResults={areMultipleResults}
+        setAreMultipleResults={setAreMultipleResults}
         setCountryData={setCountryData}
       />
       <Results
         responseObject={responseObject}
+        areMultipleResults={areMultipleResults}
         countryData={countryData}
       />
     </>
