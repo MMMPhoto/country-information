@@ -23,20 +23,18 @@ const Results = ({countryData, responseObject} : {countryData: CountryData | nul
             <Heading>Population:</Heading>
             <p>{countryData.population}</p>
           </InfoContainer>
-        :  
-          <InfoContainer>
-            {responseObject && !responseObject?.ok 
-              ?
-                <div>
-                  <Heading>Something went wrong!</Heading>
-                  <p>Status: {responseObject.status} {responseObject.statusText}</p>
-                </div>
-              :
-                <></>
-            } 
-          </InfoContainer>
+        :
+          <></>
       }
-
+      {responseObject && !responseObject?.ok 
+        ?
+          <InfoContainer>
+            <Heading>Something went wrong!</Heading>
+            <p>Status: {responseObject.status} {responseObject.statusText}. <br />{responseObject.status === 404 ? 'Please revise your search term and try again.' : ''}</p>
+          </InfoContainer>
+        :
+          <></>
+      } 
       {countryData
         ?
           <ImageContainer>
@@ -44,7 +42,7 @@ const Results = ({countryData, responseObject} : {countryData: CountryData | nul
             <CoatOfArms src={countryData.coatOfArmsUrl} alt={`Coat of Arms of ${countryData.officialName}`} />
           </ImageContainer>
         :
-          <ImageContainer></ImageContainer>
+          <></>
       }
     </Container>
 

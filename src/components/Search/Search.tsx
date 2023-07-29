@@ -1,8 +1,8 @@
 import { useRef, Dispatch, SetStateAction, FormEvent } from 'react';
 import { CountryData } from '../../types/CountryData';
 import { getCountryData } from '../../utils/api';
-import { Form, TextField } from '@react-md/form';
-import { Button } from '@react-md/button';
+import { TextField } from '@react-md/form';
+import { SearchForm, SearchButton } from './Search.styles';
 
 const Search = ({searchTerm, setSearchTerm, setResponseObject, setCountryData} : {
   searchTerm: string, 
@@ -87,7 +87,7 @@ const Search = ({searchTerm, setSearchTerm, setResponseObject, setCountryData} :
   };
 
   return (
-    <Form style={{margin: '20px'}} ref={searchRef}>
+    <SearchForm ref={searchRef}>
       <TextField
         id='text-search'
         type='text'
@@ -95,15 +95,14 @@ const Search = ({searchTerm, setSearchTerm, setResponseObject, setCountryData} :
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.currentTarget.value)}
       />
-      <Button
-        style={{marginTop: '10px', backgroundColor: '#ddd'}}
+      <SearchButton
         id='submit' 
         type='submit'
         onClick={handleFormSubmit}
       >
         Search
-      </Button>
-    </Form>
+      </SearchButton>
+    </SearchForm>
   )
 }
 

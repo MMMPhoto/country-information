@@ -1,4 +1,7 @@
-import { useEffect, useState } from 'react';
+import { 
+  // useEffect, 
+  useState
+} from 'react';
 import Search from './components/Search/Search';
 import Results from './components/Results/Results';
 import { CountryData } from './types/CountryData';
@@ -11,13 +14,13 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [countryData, setCountryData] = useState<CountryData | null>(null);
 
-  useEffect(() => {
-    console.log(countryData);
-  }, [countryData]);
+  // useEffect(() => {
+  //   console.log(countryData);
+  // }, [countryData]);
 
-  useEffect(() => {
-    console.log(responseObject);
-  }, [responseObject]);
+  // useEffect(() => {
+  //   console.log(responseObject);
+  // }, [responseObject]);
 
   return (
     <>
